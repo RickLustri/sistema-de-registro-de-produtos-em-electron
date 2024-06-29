@@ -78,12 +78,106 @@ body {
 #icon-rename, #icon-delete{
   width: 20px;
   cursor: pointer;
+  transition: transform 0.2s;
 }
-#icon-rename:hover{
+#icon-rename:hover, #icon-delete:hover{
   transform: scale(1.1);
   transition: transform 0.3s;
 }
-#icon-delete:hover{
-  transform: scale(1.1);
+
+form{
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+label{
+  font-size: 14px;
+  margin-bottom: 3px;
+  margin-top: 15px;
+  font-weight: 700;
+  padding: 0px 5px;
+}
+
+input{
+  width: 500px;
+  height: 40px;
+
+  border: 1px solid #E9EBFF;
+  border-radius: 12px;
+  color: #6A6A6A;
+
+  padding: 5px 10px;
+}
+input:focus{
+  outline: none;
+}
+
+#container2{
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+  justify-content: center;
+}
+
+#botao-voltar {
+  width: 235px;
+  height: 40px;
+
+  padding: 9px 0px 9px 0px;
+  text-align: center;
+
+  border: none;
+  border-radius: 12px;
+
+  background-color: rgba(205, 201, 255, 68%);
+  box-shadow: 0 6px 1px rgba(0, 0, 0, 25%);
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: background 0.5s, transform 0.3s;
+  text-decoration: none;
+}
+
+#botao-voltar:hover {
+  background-color: rgb(205, 201, 255);
+  transform: scale(1.04);
+  transition: background 0.5s, transform 0.3s;
+}
+
+#botao-voltar:active {
+  transform: scale(0.99);
   transition: transform 0.3s;
+}
+
+#botao-enviar {
+  width: 235px;
+  height: 40px;
+
+  padding: 9px 0px 9px 0px;
+  text-align: center;
+
+  border: none;
+  border-radius: 12px;
+
+  background-color: rgba(148, 138, 255, 68%);
+  box-shadow: 0 6px 1px rgba(0, 0, 0, 25%);
+  color: white;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  font-size: 14px;
+}
+
+#botao-enviar:hover {
+  background-color: rgba(148, 138, 255, 88%);
+  transform: scale(1.04);
+  transition: background 0.3s, transform 0.2s;
+}
+
+#botao-enviar:active {
+  transform: scale(0.99);
+  transition: transform 0.2s;
 }
