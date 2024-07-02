@@ -14,6 +14,7 @@ body {
   height: 100vh;
 
   background: linear-gradient(#ECB7FF 0%, #2E3C88 100%);
+  overflow: hidden;
 }
 
 #container {
@@ -35,6 +36,10 @@ body {
   width: 140px;
   margin-top: 60px;
   margin-bottom: 40px;
+}
+
+h1 {
+  cursor: default;
 }
 
 #botao-add-item {
@@ -60,38 +65,38 @@ body {
   text-decoration: none;
 }
 
-#botao-add-item:hover {
-  background-color: rgba(148, 138, 255, 88%);
-  transform: scale(1.04);
-  transition: background 0.5s, transform 0.3s;
-}
-
-#botao-add-item:active {
-  transform: scale(0.99);
-  transition: transform 0.3s;
-}
-
-.item{
+#item {
   display: flex;
   cursor: default;
 }
-#icon-rename, #icon-delete{
-  width: 20px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-#icon-rename:hover, #icon-delete:hover{
-  transform: scale(1.1);
-  transition: transform 0.3s;
+
+#icons {
+  display: flex;
+  margin-left: 10px;
+  gap: 5px;
 }
 
-form{
+#icon-rename,
+#icon-delete {
+  width: 20px;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.3s;
+}
+
+#icon-rename:hover,
+#icon-delete:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s, filter 0.3s;
+  filter: opacity(0.5) drop-shadow(0 0 0 red);
+}
+
+form {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
 }
 
-label{
+label {
   font-size: 14px;
   margin-bottom: 3px;
   margin-top: 15px;
@@ -99,7 +104,7 @@ label{
   padding: 0px 5px;
 }
 
-input{
+input {
   width: 500px;
   height: 40px;
 
@@ -109,66 +114,60 @@ input{
 
   padding: 5px 10px;
 }
-input:focus{
+
+input:focus {
   outline: none;
 }
 
-#container2{
+#container2 {
   display: flex;
   flex-direction: row;
-  gap:20px;
+  gap: 20px;
   justify-content: center;
+
+  margin-top: 25px;
+}
+
+#botao-voltar,
+#botao-enviar {
+  font-family: "Jost", sans-serif;
+  font-size: 15px;
+  width: 235px;
+  height: 40px;
+
+  padding: 9px 0px 9px 0px;
+  text-align: center;
+
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 1px rgba(0, 0, 0, 25%);
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: background 0.5s, transform 0.3s;
 }
 
 #botao-voltar {
-  width: 235px;
-  height: 40px;
-
-  padding: 9px 0px 9px 0px;
-  text-align: center;
-
-  border: none;
-  border-radius: 12px;
-
-  background-color: rgba(205, 201, 255, 68%);
-  box-shadow: 0 6px 1px rgba(0, 0, 0, 25%);
-  color: rgb(0, 0, 0);
-  font-weight: 700;
-
-  cursor: pointer;
-  transition: background 0.5s, transform 0.3s;
   text-decoration: none;
-}
-
-#botao-voltar:hover {
-  background-color: rgb(205, 201, 255);
-  transform: scale(1.04);
-  transition: background 0.5s, transform 0.3s;
-}
-
-#botao-voltar:active {
-  transform: scale(0.99);
-  transition: transform 0.3s;
+  background-color: rgba(148, 138, 255, 68%);
+  color: white;
 }
 
 #botao-enviar {
-  width: 235px;
-  height: 40px;
-
-  padding: 9px 0px 9px 0px;
-  text-align: center;
-
-  border: none;
-  border-radius: 12px;
-
-  background-color: rgba(148, 138, 255, 68%);
-  box-shadow: 0 6px 1px rgba(0, 0, 0, 25%);
-  color: white;
+  background-color: rgba(186, 179, 255, 0.68);
   font-weight: 700;
+  color: black;
+}
 
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  font-size: 14px;
+#botao-enviar:disabled {
+  cursor: not-allowed;
+}
+
+#botao-voltar:hover,
+#botao-add-item:hover {
+  background-color: rgb(205, 201, 255);
+  transform: scale(1.04);
+  transition: background 0.5s, transform 0.3s;
 }
 
 #botao-enviar:hover {
@@ -177,7 +176,9 @@ input:focus{
   transition: background 0.3s, transform 0.2s;
 }
 
-#botao-enviar:active {
+#botao-voltar:active,
+#botao-enviar:active,
+#botao-add-item:active {
   transform: scale(0.99);
-  transition: transform 0.2s;
+  transition: transform 0.3s;
 }

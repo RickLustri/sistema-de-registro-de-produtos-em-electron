@@ -16,28 +16,27 @@
 
       <img id="logo" src="../assets/image/logo.png" alt="Logo do sistema" />
       <h1>Adicionar produto</h1>
-      <form>
-        <label for="text">Nome</label>
-        <input type="text" placeholder="Digite o nome">
+      <form id="form">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" placeholder="Digite o nome">
 
-        <label for="">Quantidade</label>
-        <input type="text" placeholder="Digite a quantidade">
+        <label for="quantidade">Quantidade</label>
+        <input id="quantidade" type="text" placeholder="Digite a quantidade">
 
-        <label for="">Código do produto</label>
-        <input type="text" placeholder="Exemplo: AB3D4C">
+        <label for="codigo">Código do produto</label>
+        <input id="codigo" type="text" placeholder="Exemplo: AB3D4C">
 
-        <label for="">Marca</label>
-        <input type="text" placeholder="Digite a marca">
+        <label for="marca">Marca</label>
+        <input id="marca" type="text" placeholder="Digite a marca">
 
-        <label for=""></label>
         <div id="container2">
           <a id="botao-voltar" href="index.html">Voltar para listagem</a>
-          <button type="submit" id="botao-enviar" >Cadastrar produto</button>
+          <button id="botao-enviar" type="submit">Cadastrar produto</button>
         </div>
       </form>
     </div>
   </main>
-  <script src="script.js"></script>
+  <script src="script-carregar-produto.js"></script>
 </body>
 
 </html>
