@@ -31,28 +31,26 @@ conexao.query(queryBuscar, function (error, produtos) {
 
     // Criando os itens
     produtos.forEach(produto => {
-      
       // Criando as li 
       var criarItem = document.createElement("li");
-      criarItem.setAttribute("id", "item");
+      criarItem.id = "item";
 
       // Criando a div
       var criarIcones = document.createElement("div");
-      criarIcones.setAttribute("id", "icons");
+      criarIcones.id = "icons";
 
       // Criando os icone de renomear
       var iconRename = document.createElement("img");
-      iconRename.setAttribute("id", "icon-rename");
+      iconRename.id= "icon-rename"
       iconRename.src = "../assets/icons/renomear.png";
 
       // Criando o icone de deletar
       var iconDelete = document.createElement("img");
-      iconDelete.setAttribute("id", "icon-delete");
+      iconDelete.id = "icon-delete";
       iconDelete.src = "../assets/icons/deletar.png";
 
       // Criando o conteúdo
       criarItem.innerText = `${produto.nome} - ${produto.quantidade} - ${produto.codigo_produto} - ${produto.marca}`
-
 
       // Adicionando os icones
       criarIcones.appendChild(iconRename);
@@ -60,13 +58,9 @@ conexao.query(queryBuscar, function (error, produtos) {
 
       // Adicionando os icones ao item
       criarItem.appendChild(criarIcones);
-      
+
       // Adicionando os itens
-      listagemProdutos.appendChild(criarItem);  
-    })
+      listagemProdutos.appendChild(criarItem);
+    });
   }
 })
-
-
-var form = document.getElementById("form");
-form.addEventListener("submit", "keyup", adicionarProdutos);
