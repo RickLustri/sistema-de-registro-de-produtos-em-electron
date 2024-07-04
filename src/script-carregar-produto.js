@@ -1,23 +1,5 @@
 // Importando o mysql2
-var mysql = require("mysql2");
-
-// Configuração para acessar o banco de dados
-var conexao = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "produtos",
-});
-
-// Conectando ao MySQL
-conexao.connect(function (error) {
-  if (error) {
-    console.log(`Ocorreu um erro ao conectar no banco de dados: ${error.code}`);
-    console.log(`Ocorreu um erro ao conectar no banco de dados: ${error.fatal}`);
-  } else {
-    console.log("Conectado ao banco de dados com sucesso!");
-  }
-});
+var conexao = require("../conectar-banco-dados");
 
 // Buscando os dados no MySQL
 var queryBuscar = "SELECT * FROM produto";
@@ -33,7 +15,8 @@ conexao.query(queryBuscar, function (error, produtos) {
     produtos.forEach(produto => {
       // Criando as li 
       var criarItem = document.createElement("li");
-      criarItem.id = "item";
+      criarItem.setAttribute("class", "item")
+      criarItem.id = produto.id
 
       // Criando a div
       var criarIcones = document.createElement("div");
@@ -41,13 +24,15 @@ conexao.query(queryBuscar, function (error, produtos) {
 
       // Criando os icone de renomear
       var iconRename = document.createElement("img");
-      iconRename.id= "icon-rename"
+      iconRename.id = "icon-rename"
       iconRename.src = "../assets/icons/renomear.png";
+      iconRename.addEventListener("click", () => renomearItem(criarItem.id, produto))
 
       // Criando o icone de deletar
       var iconDelete = document.createElement("img");
       iconDelete.id = "icon-delete";
       iconDelete.src = "../assets/icons/deletar.png";
+      iconDelete.addEventListener("click", () => deletarItem(criarItem.id));
 
       // Criando o conteúdo
       criarItem.innerText = `${produto.nome} - ${produto.quantidade} - ${produto.codigo_produto} - ${produto.marca}`
@@ -61,6 +46,23 @@ conexao.query(queryBuscar, function (error, produtos) {
 
       // Adicionando os itens
       listagemProdutos.appendChild(criarItem);
-    });
+    }
+    );
   }
 })
+
+function deletarItem(id) {
+  var deletar = id
+  var queryDeletar = `DELETE FROM produto WHERE id = ${deletar}`;
+  conexao.query(queryDeletar, function (error) {
+    if (error) {
+      console.log(`Ocorreu um erro ao deletar o item: ${error.code}`);
+      console.log(`Ocorreu um erro ao deletar o item: ${error.fatal}`);
+    } else {
+      console.log("Item deletado com sucesso!");
+    }
+  })
+}
+
+function renomearItem(id) {
+}

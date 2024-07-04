@@ -65,7 +65,7 @@ h1 {
   text-decoration: none;
 }
 
-#item {
+.item {
   display: flex;
   cursor: default;
 }
@@ -87,7 +87,7 @@ h1 {
 #icon-delete:hover {
   transform: scale(1.1);
   transition: transform 0.3s, filter 0.3s;
-  filter: opacity(0.5) drop-shadow(0 0 0 red);
+  filter: drop-shadow(0 0 1px rgb(255, 0, 0));
 }
 
 form {
