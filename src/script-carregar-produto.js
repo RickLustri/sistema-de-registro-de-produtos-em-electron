@@ -60,9 +60,11 @@ function deletarItem(id) {
       console.log(`Ocorreu um erro ao deletar o item: ${error.fatal}`);
     } else {
       console.log("Item deletado com sucesso!");
+      location.reload()
     }
   })
 }
 
 function renomearItem(id) {
+
 }
